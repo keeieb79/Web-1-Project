@@ -1,0 +1,29 @@
+body{
+    background: url("../imgs/pexels-jplenio-1103970.jpg");
+    background-size: cover;
+}
+
+.container{
+    border: solid 2px rgb(185, 184, 184);
+    border-radius: 7px;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12%;
+}
+.login{
+    text-align: center;
+    font-family: system-ui;
+    
+    padding: 50px;
+    
+    color: white ;
+}
+#reset{
+    text-decoration: none;
+    color:rgba(0, 122, 122, 0.877);
+    
+}
+#gg{
+    float: left;
+}
