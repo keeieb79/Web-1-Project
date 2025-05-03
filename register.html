@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Registeration</title>
 
-    <link rel="stylesheet" href="style/login.css">
+    <link rel="stylesheet" href="style/register.css">
 
     <!-- animation css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -16,10 +15,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cal+Sans&display=swap" rel="stylesheet">
 </head>
-
 <body>
+
     <div class="container">
-        <h2 id="headLogin" class="animate__bounceInDown cal-sans-regular">Login <br> Here</h2>
+        <h2 id="headLogin" class="animate__bounceInDown cal-sans-regular">Register <br> Here</h2>
         <form action="login.html" method="dialog">
                 <p>
                     <label for="user">Username</label><br>
@@ -31,12 +30,21 @@
                     <input type="password" name="password" id="passwd" placeholder="Password" required>
                 </p>
 
-                <button type="submit"><span id="login">Login</span></button>
-                <p id="regis">You don't have account <a href="register.html">Register Now</a></p>
+                <p>
+                    <label for="passwordConf">Confirm password</label><br>
+                    <input type="password" name="passwordConf" id="passwordConf" placeholder="Confirm Password" required>
+                </p>
+
+                <p>
+                    <label for="birth">BirthDate</label><br>
+                    <input type="date" name="birth" id="birth" required>
+                </p>
+
+                <p id="redirLog">You have account<a href="login.html" style="margin-left: 6px;">Login</a></p>
+
+                <button type="submit"><span id="login">Create account</span></button>
         </form>
     </div>
 
-    <script src="scripts/login.js"></script>
 </body>
-
 </html>
