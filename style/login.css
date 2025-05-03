@@ -1,5 +1,6 @@
 body {
     background-color: #110b16;
+    background-image: url('../imgs/login-register-background.jpg');
 }
 
 div {
@@ -103,5 +104,5 @@ button{
 }
 #regis a{
     text-decoration: none;
-    color: gray;
+    color: #5fb7f1;
 }

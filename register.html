@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style/register.css">
 
     <!-- animation css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> -->
 
     <!-- import google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,19 +19,19 @@
 
     <div class="container">
         <h2 id="headLogin" class="animate__bounceInDown cal-sans-regular">Register <br> Here</h2>
-        <form action="login.html" method="post" onsubmit="check(e)">
+        <form action="register.html" method="dialog" id="checkForm">
                 <p>
                     <label for="user">Username</label><br>
                     <input type="text" name="username" class="cusInput" id="user" placeholder="Username" required>
                 </p>
 
                 <p>
-                    <label for="passwd" class="toRed">Password</label><br>
+                    <label for="passwd" id="toRed1">Password</label><br>
                     <input type="password" name="password" class="cusInput" id="passwd" placeholder="Password" required>
                 </p>
 
                 <p>
-                    <label for="passwdConf" class="toRed">Confirm password</label><br>
+                    <label for="passwdConf" id="toRed2">Confirm password</label><br>
                     <input type="password" name="passwdConf" class="cusInput" id="passwdConf" placeholder="Confirm Password" required>
                 </p>
 
