@@ -1,63 +1,44 @@
+/* *{
+    margin:0;
+    padding:0;
+} */
+
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-/* make it inline element */
-.navbar ul li, h1{
-    display: inline;
-    
-    text-decoration: none;
-}
-/* customize the nav bar */
+/*  */
 .navbar{
-    width: 70%;
+    width: 85%;
 
     margin-left: auto;
     margin-right: auto;
-    background-color: cadetblue;
-
-    border: 1px solid;
-    border-radius: 7px;
 }
 
-.navbar ul{
-    padding-left: 20px;
-    padding-right: 20px;
+/* custom the nav element */
+.navbar nav{
+    border: 1px solid black;
+    border-radius: 5px;
+
+    background-color: darkcyan;
 }
 
-/* customize the a tag */
+/* make the nav bar inline */
+.navbar nav li{
+    display: inline;
+}
+
 .navbar a{
     font-size: 25px;
-    text-decoration: none;
-    
-    margin: 5px;
-    padding: 5px;
 
+    text-decoration: none;
     color: wheat;
+
+    margin: 5px;
 }
 
-/* nav bar login in left side */
-#NavbarLogin{
+.navbar .login{
     float: right;
 
+    margin: 0px;
 }
-
-/* declear an animation for a tag on hover */
-.navbar a:hover{
-
-    animation-name: underlineAtag ;/*1s ease-in infinite normal;*/
-    animation-timing-function: ease-in;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    
-}
-
-/* animation for a tag in nav bar */
-@keyframes underlineAtag{
-    10%{
-        text-decoration: underline;
-        text-decoration-color: black;    
-    }
-}
-

@@ -1,29 +1,85 @@
-body{
-    background: url("../imgs/pexels-jplenio-1103970.jpg");
-    background-size: cover;
+body {
+    background-color: #110b16;
 }
 
-.container{
-    border: solid 2px rgb(185, 184, 184);
-    border-radius: 7px;
+div {
+    width: 50%;
+    height: 50%;
+}
+
+.container {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
     width: 40%;
+
+    border: solid white 1px;
+    border-radius: 10px;
+
+    color: white;
+
     margin-left: auto;
     margin-right: auto;
-    margin-top: 12%;
+    margin-top: 300px;
+    padding: 30px 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.login{
-    text-align: center;
-    font-family: system-ui;
-    
-    padding: 50px;
-    
-    color: white ;
-}
-#reset{
-    text-decoration: none;
-    color:rgba(0, 122, 122, 0.877);
-    
-}
-#gg{
+
+#headLogin {
     float: left;
+    
+    font-size: 50px;
+
+    margin: 0px 40px;
+}
+
+label{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+
+}
+input[type=text] {
+    width: 100%;
+    padding: 6px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+input[type=password] {
+    width: 100%;
+    padding: 6px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=password]:focus {
+    border: 3px solid #555;
+}
+
+button{
+    width: 100%;
+    padding: 10px;
+
+    background-color: white;
+    color: black;
+
+    border: solid;
+    border-radius: 8px;
+}
+#login{
+    font-size: large;
+    font-weight: bold;
 }
