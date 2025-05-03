@@ -16,7 +16,7 @@ div {
 
     margin-left: auto;
     margin-right: auto;
-    margin-top: 300px;
+    margin-top: 200px;
     padding: 30px 15px;
 
     display: flex;
@@ -46,7 +46,11 @@ label{
     font-weight: bold;
 }
 
-input[type=text] {
+form{
+    margin-right: 20px;
+}
+
+.cusInput{
     width: 100%;
     padding: 6px 15px;
     margin: 8px 0;
@@ -58,39 +62,21 @@ input[type=text] {
 
     border-radius: 8px;
 }
-
-input[type=text]:focus {
-    border: 3px solid #555;
-}
-input[type=password] {
-    width: 100%;
-    padding: 6px 15px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 3px solid #ccc;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    outline: none;
-
-    border-radius: 8px;
-}
-
-input[type=password]:focus {
+.cusInput:focus{
     border: 3px solid #555;
 }
 
-input[type=date] {
-    width: 100%;
-    padding: 6px 15px;
-    margin: 8px 0;
-    box-sizing: border-box;
+input[type=checkbox] {
+    margin: 5px;
     border: 3px solid #ccc;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
-
-    border-radius: 8px;
 }
+
+input[type=checkbox]:focus {
+    border: 5px solid #555;
+} */
 
 #redirLog{
     font-weight: bold;

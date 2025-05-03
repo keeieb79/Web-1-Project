@@ -19,30 +19,45 @@
 
     <div class="container">
         <h2 id="headLogin" class="animate__bounceInDown cal-sans-regular">Register <br> Here</h2>
-        <form action="login.html" method="dialog">
+        <form action="login.html" method="post" onsubmit="check(e)">
                 <p>
                     <label for="user">Username</label><br>
-                    <input type="text" name="username" id="user" placeholder="Email or Phone" required>
+                    <input type="text" name="username" class="cusInput" id="user" placeholder="Username" required>
                 </p>
 
                 <p>
-                    <label for="passwd">Password</label><br>
-                    <input type="password" name="password" id="passwd" placeholder="Password" required>
+                    <label for="passwd" class="toRed">Password</label><br>
+                    <input type="password" name="password" class="cusInput" id="passwd" placeholder="Password" required>
                 </p>
 
                 <p>
-                    <label for="passwordConf">Confirm password</label><br>
-                    <input type="password" name="passwordConf" id="passwordConf" placeholder="Confirm Password" required>
+                    <label for="passwdConf" class="toRed">Confirm password</label><br>
+                    <input type="password" name="passwdConf" class="cusInput" id="passwdConf" placeholder="Confirm Password" required>
                 </p>
 
+                <p>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" class="cusInput" id="email" placeholder="Email" required>
+                </p>
+
+                <p>
+                    <label for="age">Age <span id="displayAge"></span></label>
+                    <!-- should be above 10 -->
+                    <input type="range" name="age" id="age" min="10" max="70" oninput="dispAge()">
+                </p>
+                
                 <p>
                     <label for="birth">BirthDate</label><br>
-                    <input type="date" name="birth" id="birth" required>
+                    <input type="date" name="birth" class="cusInput" id="birth" required>
+                </p>
+
+                <p id="check">
+                    <input type="checkbox" name="agree" id="agree"> <label for="agree">I agree</label>
                 </p>
 
                 <p id="redirLog">You have account<a href="login.html" style="margin-left: 6px;">Login</a></p>
 
-                <button type="submit"><span id="login">Create account</span></button>
+                <button type="submit" onclick="check()"><span id="login">Create account</span></button>
         </form>
     </div>
 
