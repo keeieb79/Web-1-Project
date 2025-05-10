@@ -1,0 +1,106 @@
+body {
+    background-color: #110b16;
+    background-image: url('../imgs/login-register-background.jpg');
+    background-size: cover;
+}
+
+div {
+    width: 50%;
+    height: 50%;
+}
+
+.container {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+    width: 40%;
+
+    color: white;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    padding: 30px 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .1);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+
+}
+
+#headLogin {
+    float: left; 
+    font-size: 60px;
+    margin: 0px 40px;
+    
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+label{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+
+form{
+    margin-right: 20px;
+}
+
+.cusInput{
+    width: 100%;
+    padding: 6px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+
+    border-radius: 8px;
+}
+.cusInput:focus{
+    border: 3px solid #555;
+}
+
+input[type=checkbox] {
+    margin: 5px;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=checkbox]:focus {
+    border: 5px solid #555;
+} */
+
+#redirLog{
+    font-weight: bold;
+}
+
+#redirLog a{
+    text-decoration: none;
+    font-weight: bolder;
+    
+    color: rgb(72, 157, 214);    
+}
+
+.subBut{
+    width: 100%;
+    padding: 10px;
+
+    background-color: white;
+    color: black;
+
+    border: solid white;
+    border-radius: 8px;
+    
+    font-size: large;
+    font-weight: bold;
+}

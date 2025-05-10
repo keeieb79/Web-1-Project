@@ -19,7 +19,7 @@
 
     <div class="container">
         <h2 id="headLogin" class="animate__bounceInDown cal-sans-regular">Register <br> Here</h2>
-        <form action="register.html" method="dialog" id="checkForm">
+        <form action="register" method="post" id="checkForm">
                 <p>
                     <label for="user">Username</label><br>
                     <input type="text" name="username" class="cusInput" id="user" placeholder="Username" required>
@@ -55,9 +55,9 @@
                     <input type="checkbox" name="agree" id="agree"> <label for="agree">I agree</label>
                 </p>
 
-                <p id="redirLog">You have account<a href="login.html" style="margin-left: 6px;">Login</a></p>
+                <p id="redirLog">You have account<a href="login" style="margin-left: 6px;">Login</a></p>
 
-                <button type="submit" onclick="check()"><span id="login">Create account</span></button>
+                <input type="submit" value="Create account" class="subBut">
         </form>
     </div>
 

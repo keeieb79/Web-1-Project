@@ -1,0 +1,27 @@
+{
+  "name": "web1project",
+  "version": "1.0.0",
+  "description": ">[!warning] uncompleted project # Simple Recipe Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keeieb79/Web-1-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keeieb79/Web-1-Project/issues"
+  },
+  "homepage": "https://github.com/keeieb79/Web-1-Project#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "mysql": "^2.18.1",
+    "path": "^0.12.7"
+  }
+}
