@@ -1,11 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+
+    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cal+Sans&family=Share+Tech&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    
+    <!-- import icons package -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    <h1>hello  to home page</h1>
+    <main>
+        <!-- design: Done -->
+        <nav class="topNavBar">
+            <!-- TO-DO: your logo with redirect to home page -->
+            <ul>
+                <li>
+                    <a href="index.html" id="navTopLogo">
+                        <img src="imgs/Edit.org_design_12-05-06--01.png" height="40px" alt="">
+                    </a>
+                </li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Our Products</a></li>
+                <li><a href="/order">Buy</a></li>
+                <!-- <li><a href="">Search Products</a></li> -->
+                <li><a href="">My cart</a></li>
+
+                <li class="loginStatus" onload="chaguser()"><a href="/login"><span id="loginStatus">Login</span></a></li>
+            </ul>
+        </nav>
+
+        <section>
+            <div class="container">
+                <article class="whoWeAre">
+                    <img src="imgs/Edit.org_design_12-05-06--01.png" height="450px" alt="" style="float: left;">
+                    <!-- <div class="whoWeAre"></div> -->
+                    <div class="right-side">
+                        <!-- <h1>who we are</h1> -->
+                        <p id="top-store-detail">we are more than just an online store</p>
+                        <br>
+                        <p id="store-detail">Discover powerful cybersecurity tools, carefully selected to help you
+                            proactively protect your digital life and business.</p>
+                    </div>
+                </article>
+
+                <!-- gallery section -->
+                <article class="store-gallery" style="margin-top: 70px;">
+                    <h2 style="font-family: Ubuntu_Regular; font-weight: bold;">Sample Of Our Products</h2>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100 rounded" src="imgs/items/Dark-Sentinel-EDR.png"
+                                    alt="First slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Dark Sentinel EDR</h5>
+                                    <p>Advanced endpoint protection with AI-powered threat detection and automated
+                                        remediation.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100 rounded" src="imgs/items/DarkTrace-Forensics.webp"
+                                    alt="Second slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>DarkTrace Forensics</h5>
+                                    <p>Comprehensive tools for incident response and digital evidence analysis.</p>
+                                </div>
+
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100 rounded" src="imgs/items/Data-Cloak-DLP.png"
+                                    alt="Third slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Data Cloak DLP</h5>
+                                    <p>Protect your confidential information with advanced data monitoring and control.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100 rounded" src="imgs/items/Mail-Shadow-Guardian.webp"
+                                    alt="Forth slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Mail Shadow Guardian</h5>
+                                    <p>Advanced email security to block threats and secure your communications.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="support">
+                    <h2 style="font-weight: bold;">Our Support Team 👨‍💻<span
+                            style="font-style: italic; color: red;">24/7</span></h2>
+                    <br>
+
+                    <div class="card-deck">
+                        <div class="card">
+                          <img class="card-img-top" src="imgs/support-team.png" style="border-radius: 30px;" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title">David Chen</h5>
+                            <p class="card-text"><span style="font-weight: bold;">Role:</span> Senior Cybersecurity Support Engineer</p>
+                            <p class="card-text"><span style="font-weight: bold;">Experience:</span> David has over 8 years of experience in the cybersecurity industry. He specializes in troubleshooting complex network security issues, incident response, and providing expert-level support for our enterprise clients. David holds multiple certifications, including CISSP and CompTIA Security+, and is known for his problem-solving skills and dedication to customer satisfaction.</p>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <img class="card-img-top" src="imgs/support-team.png" style="border-radius: 30px;" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title">Ben Carter</h5>
+                            <p class="card-text"><span style="font-weight: bold;">Role:</span> Technical Support Specialist</p>
+                            <p class="card-text"><span style="font-weight: bold;">Experience:</span> Ben has been with our company for 3 years, providing technical assistance and support to our customers. He is highly proficient in diagnosing and resolving product-related issues, conducting remote troubleshooting, and delivering exceptional customer service. Ben is passionate about helping customers and ensuring they have a positive experience with our products.</p>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <img class="card-img-top" src="imgs/support-team.png" style="border-radius: 30px;" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title">Michael Brown</h5>
+                            <p class="card-text"><span style="font-weight: bold;">Role:</span> Security Monitoring Analyst</p>
+                            <p class="card-text"><span style="font-weight: bold;">Experience:</span> Michael is responsible for monitoring our clients' systems and networks for potential security threats. With 5 years of experience in security operations, he is skilled in analyzing security logs, identifying anomalies, and escalating critical issues to the incident response team. Michael's proactive approach and attention to detail help ensure the security and integrity of our clients' data.</p>
+                          </div>
+                        </div>
+                    </div>
+                      
+                    <br>
+                    <p>Rely on our expert support team and vigilant monitor service for continuous protection and peace
+                        of mind. We deliver reliable support and proactive monitoring to keep your business running
+                        smoothly.</p>
+
+                    <br>
+                    <h2 style="font-weight: bold;">Beyond the Purchase</h2>
+                    <p>Our relationship with you doesn't end at checkout. We're committed to providing comprehensive
+                        support and resources long after your initial purchase. This includes ensuring the ongoing
+                        security of your systems and maximizing the value of your investment. From seamless setup and
+                        proactive monitoring of your products to expert troubleshooting and assistance, we're here to
+                        help you achieve your goals. We stand by the security and reliability of our products with
+                        continuous support.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <nav class="downNav">
+            
+            <div class="location">                
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15861.175810492075!2d39.60432161267576!3d24.4753921897039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15bdbf1d1676544f%3A0xfbbfd8a98062b13d!2sCave%20of%20Bani%20Haram!5e1!3m2!1sen!2ssa!4v1747143921145!5m2!1sen!2ssa" width="500px" height="295px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div class="aboutus">
+                <h2>Contact Us</h2>
+                <ul>
+                    <li><a href="tel:999"><i class="fa-brands fa-2xl fa-square-whatsapp" style="color: #ffffff;"></i> +1 23456789</a></li>
+                    <li><a href=""><i class="fa-brands fa-2xl fa-square-facebook" style="color: #ffffff;"></i> test</a></li>
+                    <li><a href=""><i class="fa-brands fa-2xl fa-square-instagram" style="color: #ffffff;"></i> test</a></li>
+                    <li><a href="mailto:keeieb79@gmail.com"><i class="fa-solid fa-2xl fa-envelope" style="color: #ffffff;"></i> keeieb79@gmail.com</a></li>
+                </ul>
+            </div>
+
+        </nav>
+    </main>
+
 </body>
+
 </html>

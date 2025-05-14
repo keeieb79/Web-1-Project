@@ -1,44 +1,203 @@
-/* *{
+*{
     margin:0;
     padding:0;
-} */
-
-body{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-/*  */
-.navbar{
-    width: 85%;
+body{
+    background-color: rgb(223, 219, 219);
+}
+
+/* importing fonts */
+@font-face {
+    font-family: BebasNeue;
+    src: url('public/fonts/Bebas_Neue/BebasNeue-Regular.ttf');
+}
+@font-face {
+    font-family: Cal_Sans;
+    src: url('public/fonts/Cal_Sans/CalSans-Regular.ttf');
+}
+@font-face {
+    font-family: Ubuntu_Regular;
+    src: url('public/fonts/Ubuntu/Ubuntu-Medium.ttf');
+}
+
+.topNavBar{
+    background-color: gray;
+    height: 63px;
+    overflow: hidden;
+}
+
+.topNavBar li{
+    text-align: center;
+    display: inline;
+}
+
+.topNavBar a{
+    color: white;
+
+    display: inline-block;
+    vertical-align: middle;
+    padding: 20px;
+  
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+.topNavBar a:hover{
+    color: black;
+    text-decoration: solid;
+    -webkit-transition: 0.4s;
+}
+
+#navTopLogo{
+    padding: 0px;
+}
+
+#navTopLogo img{
+    height: 62px;
+    width: 60px;
+}
+
+.loginStatus{
+    float: right;
+}
+/* --------complete---------- */
+
+/* who we are section */
+
+.container{
+    width: 70%;
 
     margin-left: auto;
     margin-right: auto;
 }
 
-/* custom the nav element */
-.navbar nav{
-    border: 1px solid black;
-    border-radius: 5px;
+.whoWeAre{
+    background: rgba(255, 255, 255, 0.1);
 
-    background-color: darkcyan;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding: 30px 15px;
+    
+    width: 100%;
+
+    color: black;
+
+    display: flex;
+    align-items: center;
+
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
 }
 
-/* make the nav bar inline */
-.navbar nav li{
-    display: inline;
+.whoWeAre img{
+    float: left;
 }
 
-.navbar a{
-    font-size: 25px;
-
-    text-decoration: none;
-    color: wheat;
-
-    margin: 5px;
-}
-
-.navbar .login{
+.right-side{
     float: right;
+    font-family: BebasNeue;
+    font-size: 50px;
 
-    margin: 0px;
+    margin-left: 150px;
+    height: 70%;
 }
+
+#top-store-detail{
+    font-weight:bolder;
+
+    font-family: Cal_Sans;
+}
+
+#store-detail{
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+.support{
+    background: rgba(255, 255, 255, 0.1);
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    padding: 30px 15px;
+    
+    width: 100%;
+
+    color: black;
+
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+}
+
+.support h1{
+    width: 100%;
+
+    font-family: BebasNeue, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.support p{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 520;
+    font-style: normal;  
+    font-size: large;
+}
+
+/* The Last Nav */
+.downNav{
+    background-color: gray;
+    
+    margin-top: 100px;
+    
+    height: 300px;
+    width: 100%;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    overflow: hidden;
+}
+
+/* down nav */
+.location{
+    float: left;
+
+    margin-top: 5px;
+    margin-left: 5px;
+
+    border: none;
+    border-radius: 10px;
+}
+
+.aboutus{
+    float: left;
+    color: white;
+
+    margin-left: 100px;
+
+    width: 30%;
+}
+.aboutus h2{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+}
+.aboutus li{
+    list-style-type: none;
+    padding: 10px;
+
+}
+
+.aboutus a{
+    color: white;
+    size: 10px;
+}
+

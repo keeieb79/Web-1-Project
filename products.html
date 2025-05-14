@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover</title>
+
+    <link rel="stylesheet" href="style/products.css">
+</head>
+<body onload="insertData()">
+    <main>
+        <section>
+            <article>
+                <nav class="topNavBar">
+                    <!-- TO-DO: your logo with redirect to home page -->
+                    <ul>
+                        <li>
+                            <a href="index.html" id="navTopLogo">
+                                <img src="imgs/Edit.org_design_12-05-06--01.png" height="40px" alt="">
+                            </a>
+                        </li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/products">Our Products</a></li>
+                        <li><a href="/search">Search Products</a></li>
+                        <li><a href="/order">Buy</a></li>
+                        <li><a href="">My cart</a></li>
+        
+                        <!-- <li class="loginStatus"><a href="/login"><span id="loginStatus">Login</span></a></li> -->
+                    </ul>
+                </nav>
+            </article>
+
+            <article>
+                <table class="mainTable">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody id="tableBody">
+                        
+                    </tbody>
+
+                </table>
+            </article>
+        </section>
+    </main>
+
+    <!-- js file -->
+     <script src="scripts/products.js"></script>
+</body>
+</html>

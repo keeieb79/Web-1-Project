@@ -1,0 +1,8 @@
+- in register page
+    - [ ] make role column in the database
+    - [ ] check if the user aleardy have account, if yes, then redirect him ot login page
+- in the login page
+    - [ ] check if the user don't have account and redirect him to register page
+    - bouns
+        - [ ] reset password page
+- in home page

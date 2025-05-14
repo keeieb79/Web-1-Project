@@ -4,7 +4,7 @@
   "description": ">[!warning] uncompleted project # Simple Recipe Website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "express": "^5.1.0",
     "express-session": "^1.18.1",
     "mysql": "^2.18.1",
+    "nodemon": "^3.1.10",
     "path": "^0.12.7"
   }
 }

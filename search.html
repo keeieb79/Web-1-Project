@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+
+    <link rel="stylesheet" href="style/search.css">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <br>
+    <div class="container">
+        <div class="search">
+            <h1 style="margin-bottom: 40px;">Search For Products</h1>
+            <input type="text" name="search" class="searchText" id="searchText" placeholder="Search For Any Products">
+            <button type="button" id="searchButton" onclick="search()">Seach</button>
+        </div>
+
+        <div class="table">
+            <table class="mainTable" >
+            <thead class="animate__fadeInDownBig">
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                
+                <tbody id="tableBody" >
+                    
+                </tbody>  
+            </table>
+        </div>
+    </div>
+
+    <!-- js file -->
+     <script src="scripts/search.js"></script>
+</body>
+</html>

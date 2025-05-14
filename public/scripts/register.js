@@ -52,10 +52,15 @@ async function sendData(user, passwd, email, age, birth){
         body: JSON.stringify(data)
     });
 
-    if(await req.text() == "user created successfully"){
+    let res = await req.text();
+
+    if(res == "User already exist."){
+        window.alert('User already exist.');
+        window.location.replace('http://localhost:5000/login');
+        return;
+    }else if(res == "user added successfully."){
         window.localStorage.setItem('username',data.username);
         window.localStorage.setItem('password',data.password);
-        window.location.replace("home");
     }
 }
 

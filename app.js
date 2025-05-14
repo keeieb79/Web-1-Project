@@ -1,14 +1,31 @@
 const express = require("express");
+const session = require("express-session");
 const path = require('path');
-const mysql = require('mysql')
+const mysql = require('mysql');
 
 const app = express();
+
 app.use(express.json());
+// convert the request into javascript object
+app.use(express.urlencoded({ extended: false }));
+// app.use(session({
+//     secret: "123456",
+//     saveUninitialized: false,
+//     resave: false,
+//     cookie:{
+//         maxAge: 60000 * 120
+//     }
+
+// }));
+
+// run your code with nodemon
+// npm run start
 
 // app.use('views', path.join(__dirname, 'views'));
 app.use('/style', express.static(path.join(__dirname, 'public/style')));
 app.use('/scripts', express.static(path.join(__dirname, 'public/scripts')));
 app.use('/imgs', express.static(path.join(__dirname, 'public/imgs')));
+app.use('/imgs', express.static(path.join(__dirname, 'public/fonts')));
 
 // connect to our web1Project DB
 const conn = mysql.createConnection({
@@ -18,40 +35,12 @@ const conn = mysql.createConnection({
     database: 'web1Project'
 })
 
-// test to add new user using api
-// app.post('/user',function(req, res){
-//     let user = req.body.username;
-//     let passwd = req.body.passwd;
-//     // let date 
-//     let email = req.body.email;
-
-//     console.log(user + " " + passwd + " " + email);
-//     conn.query(`INSERT INTO users(username,passwd,email) VALUES('${user}','${passwd}','${email}')`);
-//     res.status(200).send("user added successfully");
-// })
-
-// test to delete users
-app.delete('/user/:user',function(req, res){
-    const { user } = req.params;
-
-    console.log(user + " user deleted successfully.");
-    conn.query(`DELETE FROM users WHERE username = '${user}'`);
-    
-    res.status(200).send("user deleted successfully.");
+app.get('/',function(req,res){
+    res.sendFile(__dirname + "/index.html");
 })
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname,"index.html"));
-})
-
-// render login page
-app.get('/login',function(req,res) {
-    res.sendFile(path.join(__dirname,"login.html"));
-})
-
-// render registeration page
 app.get('/register',function(req,res) {
-    res.sendFile(path.join(__dirname,"register.html"));
+    res.sendFile(__dirname + "/register.html");
 })
 
 // get data from client with json format
@@ -64,11 +53,103 @@ app.post('/register',function(req,res) {
         birth: req.body.birthDate
     }
 
-    conn.query(`INSERT INTO users(username,passwd,email, age, birthDate) VALUES('${retrivedData.user}','${retrivedData.passwd}','${retrivedData.email}','${retrivedData.age}',STR_TO_DATE('${retrivedData.birth}',"%Y-%m-%d"))`);
+    conn.query("SELECT username FROM users WHERE username = '"+ retrivedData.user +"'",function(err,result){
+        if(err){
+            res.status(400).send("DB Error " + err)
+        }
+        else if(result.length > 0 && result[0].username == retrivedData.user){
+            res.status(302).send('User already exist.')
+            console.log(result);
+        }else{
+            conn.query(`INSERT INTO users(username,passwd,email, age, birthDate) VALUES('${retrivedData.user}','${retrivedData.passwd}','${retrivedData.email}','${retrivedData.age}',STR_TO_DATE('${retrivedData.birth}',"%m/%d/%Y"))`,function(err,result){
+                if(err){
+                    res.status(400).send("Bad request.")
+                }else{
+                    res.status(301).send("user added successfully.");
+                    console.log(retrivedData)
+                }
+            });
+        }
+    });
 
-    res.status(200).send("user created successfully.")
-    console.log(retrivedData)
+})
 
+// login section. done;
+app.get('/login',function(req,res){
+    res.sendFile(__dirname + '/login.html')
+})
+
+app.post('/login',function(req,res){
+    let data = {
+        username: req.body.username,
+        password: req.body.password
+    }
+
+    // console.log(data.username)
+    
+    conn.query(
+        "SELECT username, passwd FROM users WHERE username = ? AND passwd = ?",
+        [data.username, data.password],
+        function(err, result) {
+          if (err) {
+            res.status(400).send("DB Error " + err);
+            return;
+        
+        } else if (result.length >= 1 && result[0].username === data.username) {
+            // req.session.visited = true;
+            console.log(req.session.id)
+            res.redirect('/');
+            return;
+        } else {
+            res.send(window.alert('hello')).end();
+            console.log(result);
+            return;
+          }
+        }
+      );
+})
+
+app.get('/products',function(req,res){
+    res.sendFile(__dirname + '/products.html');
+});
+
+app.post('/products',function(req,res){
+    conn.query('SELECT * FROM products', (err, result) => {
+        if (err) {
+            console.log(err);      
+        }else{
+            res.send(result).status(200);
+            console.log(result);
+        }
+    })
+});
+
+app.get('/search',function(req,res){
+    res.sendFile(__dirname + '/search.html');
+});
+
+app.post('/search', function(req, res){
+    let data = {
+        search: req.body.search
+    }
+
+    conn.query(
+        "SELECT * FROM products WHERE productName = ?",[data.search],
+        function(err, result) {
+          if (err) {
+            res.status(400).send("DB Error " + err);
+            return;
+        } else if (result.length >= 1) {
+            res.json(result);
+            console.log(result);
+            return;
+        } else {
+            res.json("{'search': 'not found'}").end();
+            console.log(result);
+            return;
+          }
+        }
+      );
 })
 
 app.listen(5000, function(){
