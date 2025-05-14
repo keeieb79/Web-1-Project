@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Products</title>
+
+    <link rel="stylesheet" href="style/buy.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <main>
+        <section>
+            <nav class="topNavBar">
+                <!-- TO-DO: your logo with redirect to home page -->
+                <ul>
+                    <li>
+                        <a href="index.html" id="navTopLogo">
+                            <img src="imgs/Edit.org_design_12-05-06--01.png" height="40px" alt="">
+                        </a>
+                    </li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">Our Products</a></li>
+                    <li><a href="/search">Search Products</a></li>
+                    <li><a href="/buy">Buy</a></li>
+                    <li><a href="/cart">My cart <span class="badge badge-light" id="getNumItem"></span></a></li>
+
+                    <li class="loginStatus" onload="chaguser()" style="float: right;"><a href="/login"><span id="loginStatus">Login</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    
+        <section>
+            <div class="container">
+                <div class="search">
+                    <h1 style="margin-bottom: 40px;">Search For Products</h1>
+                    <input type="text" name="search" class="searchText" id="searchText" placeholder="Search For Any Products">
+                    <input type="number" name="count" id="quantity" placeholder="Enter the quantity" value="1" required>
+                    <button type="button" id="searchButton" onclick="search()">Add item</button>
+                    <br>
+                </div>
+                
+                <div class="table">
+                    <table class="mainTable" >
+                        <thead class="animate__fadeInDownBig">
+                            <tr>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                                                
+                        <tbody id="tableBody" >
+                            
+                        </tbody>
+                        
+                        <tfoot id="finalTotal">
+                            <!-- <tr>
+                                <td colspan="4"></td>
+                            </tr> -->
+                        </tfoot>
+                    </table>
+                </div>
+                <button type="button" id="buyButton" onclick="buy()">Buy</button>
+            </div>
+        
+            <!-- js file -->
+             <script src="scripts/buy.js"></script>
+        </section>
+    
+    
+    </main>
+</body>
+</html>

@@ -67,4 +67,29 @@ UPDATE products SET imagePath = 'imgs/items/Web-Veil-WAF.webp' WHERE productName
 UPDATE products SET imagePath = 'imgs/items/DarkTrace-Forensics.webp' WHERE productName = 'DarkTrace Forensics';
 UPDATE products SET imagePath = 'imgs/items/Net-Watcher.webp' WHERE productName = 'Net Watcher';
 
+DROP TABLE `buyItems`;
+CREATE TABLE buyItems(
+    invoiceNum INT NOT NULL AUTO_INCREMENT,
 
+    username VARCHAR(50) NOT NULL DEFAULT('no name'),
+    quantity INT NOT NULL check(quantity > 0),
+
+    items VARCHAR(100),
+    PRIMARY KEY(invoiceNum)
+);
+
+ALTER TABLE buyItems AUTO_INCREMENT=1;
+SELECT * FROM `buyItems`;
+
+DROP TABLE orders;
+
+CREATE TABLE orders(
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    custname VARCHAR(50),
+    total INT(11),
+    ordate DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    PRIMARY KEY(id)
+);
+
+SELECT * FROM orders;

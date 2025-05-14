@@ -1,0 +1,180 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-color: rgb(223, 219, 219);
+}
+
+/* importing fonts */
+@font-face {
+    font-family: BebasNeue;
+    src: url('public/fonts/Bebas_Neue/BebasNeue-Regular.ttf');
+}
+@font-face {
+    font-family: Cal_Sans;
+    src: url('public/fonts/Cal_Sans/CalSans-Regular.ttf');
+}
+@font-face {
+    font-family: Ubuntu_Regular;
+    src: url('public/fonts/Ubuntu/Ubuntu-Medium.ttf');
+}
+
+.topNavBar{
+    background-color: gray;
+    height: 63px;
+    overflow: hidden;
+}
+
+.topNavBar li{
+    text-align: center;
+    display: inline;
+}
+
+.topNavBar a{
+    color: white;
+
+    display: inline-block;
+    vertical-align: middle;
+    padding: 20px;
+  
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+.topNavBar a:hover{
+    color: black;
+    text-decoration: solid;
+    -webkit-transition: 0.4s;
+}
+
+#navTopLogo{
+    padding: 0px;
+}
+
+#navTopLogo img{
+    height: 62px;
+    width: 60px;
+}
+
+.loginStatus{
+    float: right;
+}
+
+.container{
+    margin-top: 70px;
+
+    text-align: center;
+}
+
+.search{
+    margin-left: auto;
+    margin-right: auto;
+
+    height: 150px;
+}
+/* input faild */
+.searchText{
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 35%;
+
+    padding: 6px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+
+    border-radius: 8px;
+}
+
+.searchText:focus{
+    border: 3px solid #555;
+}
+
+#quantity{
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 12%;
+
+    padding: 6px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+
+    border-radius: 8px;
+}
+#quantity:focus{
+    border: 3px solid #555;
+}
+
+#searchButton{
+    padding: 4px;
+
+    background-color: rgb(60, 164, 206);
+    color: white;
+
+    border: solid rgb(60, 164, 206);
+    border-radius: 8px;
+}
+
+#buyButton{
+    padding: 5px 20px;
+    margin-top: 10px;
+
+    background-color: rgb(60, 164, 206);
+    color: white;
+
+    border: solid rgb(60, 164, 206);
+    border-radius: 8px;
+}
+
+#delButton{
+    padding: 4px;
+
+    background-color: rgb(60, 164, 206);
+    color: white;
+
+    border: solid rgb(60, 164, 206);
+    border-radius: 8px;
+}
+
+
+.mainTable{
+    width: 70%;
+
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mainTable thead th{
+    border: solid black 1px;
+    border-radius: 5px;
+}
+
+.mainTable tbody td{
+    border: solid black 1px;
+    border-radius: 5px;
+}
+
+#tableBody{
+    font-weight: bold;
+    font-size: large;
+}
+
+.mainTable tfoot td{
+    border: solid black 1px;
+    border-radius: 5px;
+
+    font-weight: bold;
+}

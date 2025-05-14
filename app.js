@@ -2,9 +2,12 @@ const express = require("express");
 const session = require("express-session");
 const path = require('path');
 const mysql = require('mysql');
+var cors = require('cors')
+
 
 const app = express();
 
+app.use(cors())
 app.use(express.json());
 // convert the request into javascript object
 app.use(express.urlencoded({ extended: false }));
@@ -25,7 +28,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/style', express.static(path.join(__dirname, 'public/style')));
 app.use('/scripts', express.static(path.join(__dirname, 'public/scripts')));
 app.use('/imgs', express.static(path.join(__dirname, 'public/imgs')));
-app.use('/imgs', express.static(path.join(__dirname, 'public/fonts')));
+app.use('/fonts', express.static(path.join(__dirname, 'public/fonts')));
+app.use('/vid', express.static(path.join(__dirname, 'public/vid')));
 
 // connect to our web1Project DB
 const conn = mysql.createConnection({
@@ -96,13 +100,13 @@ app.post('/login',function(req,res){
             return;
         
         } else if (result.length >= 1 && result[0].username === data.username) {
-            // req.session.visited = true;
-            console.log(req.session.id)
-            res.redirect('/');
+            
+            res.json({success: true, username: result[0].username})
             return;
         } else {
-            res.send(window.alert('hello')).end();
-            console.log(result);
+            res.json({success: false, massage: 'user or password incorrct'});
+            // res.send(window.alert('hello')).end();
+            // console.log(result);
             return;
           }
         }
@@ -151,6 +155,39 @@ app.post('/search', function(req, res){
         }
       );
 })
+
+app.get('/buy',function(req,res){
+    res.sendFile(__dirname + '/buy.html');
+});
+
+app.get('/cart',function(req,res){
+    res.sendFile(__dirname + '/cart.html');
+});
+app.post('/cart',function(req,res){
+    let data = {
+        customNam: req.body.customerName,
+        total: req.body.total
+    }
+
+    conn.query(
+        "INSERT INTO orders(custname, total) VALUES(?, ?);",[data.customNam, data.total],
+        function(err,results){
+            if(err){
+                console.error(err);
+            }else{
+                console.log(results);
+                res.json({status: true}); // id: results.id
+            }
+        }
+    );
+    // let data = {
+    //     customerName: window.localStorage.getItem('username'),
+    //     total: window.localStorage.getItem('total')
+    // }
+});
+
+
+
 
 app.listen(5000, function(){
     console.log('[+] server is running on http://127.0.0.1:5000');

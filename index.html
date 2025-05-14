@@ -27,23 +27,26 @@
 <body>
     <main>
         <!-- design: Done -->
-        <nav class="topNavBar">
-            <!-- TO-DO: your logo with redirect to home page -->
-            <ul>
-                <li>
-                    <a href="index.html" id="navTopLogo">
-                        <img src="imgs/Edit.org_design_12-05-06--01.png" height="40px" alt="">
-                    </a>
-                </li>
-                <li><a href="/">Home</a></li>
-                <li><a href="/products">Our Products</a></li>
-                <li><a href="/order">Buy</a></li>
-                <!-- <li><a href="">Search Products</a></li> -->
-                <li><a href="">My cart</a></li>
+        <section>
+            <nav class="topNavBar">
+                <!-- TO-DO: your logo with redirect to home page -->
+                <ul>
+                    <li>
+                        <a href="index.html" id="navTopLogo">
+                            <img src="imgs/Edit.org_design_12-05-06--01.png" height="40px" alt="">
+                        </a>
+                    </li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">Our Products</a></li>
+                    <li><a href="/search">Search Products</a></li>
+                    <li><a href="/buy">Buy</a></li>
+                    <li><a href="/cart">My cart <span class="badge badge-light" id="getNumItem"></span></a></li>
 
-                <li class="loginStatus" onload="chaguser()"><a href="/login"><span id="loginStatus">Login</span></a></li>
-            </ul>
-        </nav>
+                    <li class="loginStatus" onload="chaguser()"><a href="/login"><span id="loginStatus">Login</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
 
         <section>
             <div class="container">
