@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body onload="chaguser()">
     <main>
         <!-- design: Done -->
         <section>
@@ -42,7 +42,7 @@
                     <li><a href="/buy">Buy</a></li>
                     <li><a href="/cart">My cart <span class="badge badge-light" id="getNumItem"></span></a></li>
 
-                    <li class="loginStatus" onload="chaguser()"><a href="/login"><span id="loginStatus">Login</span></a>
+                    <li class="loginStatus" id="loginText"><a href="/login"><span id="loginStatus">Login</span></a>
                     </li>
                 </ul>
             </nav>
@@ -192,6 +192,8 @@
         </nav>
     </main>
 
+    <!-- js files -->
+     <script src="scripts/index.js"></script>
 </body>
 
 </html>

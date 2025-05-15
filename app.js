@@ -31,16 +31,16 @@ const conn = mysql.createConnection({
     database: 'web1Project'
 })
 
-app.get('/',function(req,res){
+app.get('/', function (req, res) {
     res.sendFile(__dirname + "/index.html");
 })
 
-app.get('/register',function(req,res) {
+app.get('/register', function (req, res) {
     res.sendFile(__dirname + "/register.html");
 })
 
 // get data from client with json format
-app.post('/register',function(req,res) {
+app.post('/register', function (req, res) {
     let retrivedData = {
         user: req.body.username,
         passwd: req.body.password,
@@ -49,19 +49,19 @@ app.post('/register',function(req,res) {
         birth: req.body.birthDate
     }
 
-    conn.query("SELECT username FROM users WHERE username = '"+ retrivedData.user +"'",function(err,result){
-        if(err){
+    conn.query("SELECT username FROM users WHERE username = '" + retrivedData.user + "'", function (err, result) {
+        if (err) {
             console.error(err);
         }
-        else if(result.length > 0 && result[0].username == retrivedData.user){
-            res.json({status: false});
+        else if (result.length > 0 && result[0].username == retrivedData.user) {
+            res.json({ status: false });
             console.log(result);
-        }else{
-            conn.query(`INSERT INTO users(username,passwd,email, age, birthDate) VALUES('${retrivedData.user}','${retrivedData.passwd}','${retrivedData.email}','${retrivedData.age}',STR_TO_DATE('${retrivedData.birth}',"%Y-%m-%d"))`,function(err,result){
-                if(err){
+        } else {
+            conn.query(`INSERT INTO users(username,passwd,email, age, birthDate) VALUES('${retrivedData.user}','${retrivedData.passwd}','${retrivedData.email}','${retrivedData.age}',STR_TO_DATE('${retrivedData.birth}',"%Y-%m-%d"))`, function (err, result) {
+                if (err) {
                     console.error(err);
-                }else{
-                    res.json({status: true});
+                } else {
+                    res.json({ status: true });
                     console.log(retrivedData)
                 }
             });
@@ -71,129 +71,129 @@ app.post('/register',function(req,res) {
 })
 
 // login section. done;
-app.get('/login',function(req,res){
+app.get('/login', function (req, res) {
     res.sendFile(__dirname + '/login.html')
 })
 
-app.post('/login',function(req,res){
+app.post('/login', function (req, res) {
     let data = {
         username: req.body.username,
         password: req.body.password
     }
 
     conn.query(
-        "SELECT username, passwd FROM users WHERE username = ? AND passwd = ?",
-        [data.username, data.password],
-        function(err, result) {
-          if (err) {
-            res.status(400).send("DB Error " + err);
-            return;
-        
-        } else if (result.length >= 1 && result[0].username === data.username) {
-            
-            res.json({success: true, username: result[0].username})
-            return;
-        } else {
-            res.json({success: false, massage: 'user or password incorrct'});
-            return;
-          }
+        `SELECT username, passwd FROM users WHERE username = '${data.username}' AND passwd = '${data.password}'`,
+        function (err, result) {
+            if (err) {
+                res.status(400).send("DB Error " + err);
+                return;
+
+            } else if (result.length >= 1 && result[0].username === data.username) {
+
+                res.json({ success: true, username: result[0].username })
+                return;
+            } else {
+                res.json({ success: false, massage: 'user or password incorrct' });
+                return;
+            }
         }
-      );
+    );
 })
 
-app.get('/products',function(req,res){
+app.get('/products', function (req, res) {
     res.sendFile(__dirname + '/products.html');
 });
 
-app.post('/products',function(req,res){
+app.post('/products', function (req, res) {
     conn.query('SELECT * FROM products', (err, result) => {
         if (err) {
-            console.log(err);      
-        }else{
+            console.log(err);
+        } else {
             res.send(result).status(200);
             console.log(result);
         }
     })
 });
 
-app.get('/search',function(req,res){
+app.get('/search', function (req, res) {
     res.sendFile(__dirname + '/search.html');
 });
 
-app.post('/search', function(req, res){
+app.post('/search', function (req, res) {
     let data = {
         search: req.body.search
     }
 
     conn.query(
-        "SELECT * FROM products WHERE productName = ?",[data.search],
-        function(err, result) {
-          if (err) {
-            res.status(400).send("DB Error " + err);
-            return;
-        } else if (result.length >= 1) {
-            res.json(result);
-            console.log(result);
-            return;
-        } else {
-            res.json("{'search': 'not found'}").end();
-            console.log(result);
-            return;
-          }
+        `SELECT * FROM products WHERE productName = '${data.search}'`,
+        function (err, result) {
+            if (err) {
+                res.status(400).send("DB Error " + err);
+                return;
+            } else if (result.length >= 1) {
+                res.json(result);
+                console.log(result);
+                return;
+            } else {
+                res.json("{'search': 'not found'}").end();
+                console.log(result);
+                return;
+            }
         }
-      );
+    );
 })
 
-app.get('/buy',function(req,res){
+app.get('/buy', function (req, res) {
     res.sendFile(__dirname + '/buy.html');
 });
 
-app.get('/cart',function(req,res){
+app.get('/cart', function (req, res) {
     res.sendFile(__dirname + '/cart.html');
 });
-app.post('/cart',function(req,res){
+app.post('/cart', function (req, res) {
     let data = {
         customNam: req.body.customerName,
         total: req.body.total
     }
 
     conn.query(
-        "INSERT INTO orders(custname, total) VALUES(?, ?);",[data.customNam, data.total],
-        function(err,results){
-            if(err){
+        `INSERT INTO orders(custname, total) VALUES('${data.customNam}', '${data.total}');`,
+        function (err, results) {
+            if (err) {
                 console.error(err);
-            }else{
+            } else {
                 console.log(results);
-                res.json({status: true}); // id: results.id
+                res.json({ status: true }); // id: results.id
             }
         }
     );
 });
 
-app.get('/admin',function(req,res){
+app.get('/admin', function (req, res) {
     res.sendFile(__dirname + '/admin.html');
 });
 
-app.post('/admin', function(req, res){
-    conn.query('SELECT * FROM products',function(err,result){
-        if (err) {
-            console.error(err);
-        }else{
-            res.json(result);
-        }
-    })
+app.post('/admin', function (req, res) {
+    conn.query('SELECT * FROM products',
+        function (err, result) {
+            if (err) {
+                console.error(err);
+            } else {
+                res.json(result);
+            }
+        })
 
 });
 
-app.delete('/admin/:id',function(req,res){
+app.delete('/admin/:id', function (req, res) {
     let id = req.params.id;
 
-    conn.query('DELETE FROM products WHERE productId = ?', [id],
-        function(err,result){
+    conn.query(`DELETE FROM products WHERE productId = '${id}'`,
+        function (err, result) {
             if (err) {
                 console.error(err);
-            }else{
-                res.json({status: true})
+            } else {
+                res.json({ status: true })
             }
         }
     )
@@ -202,6 +202,53 @@ app.delete('/admin/:id',function(req,res){
 
 });
 
-app.listen(5000, function(){
+app.post('/update', function (req, res) {
+    let data = {
+        id: req.body.id,
+        name: req.body.name,
+        desc: req.body.description,
+        path: req.body.imgPath,
+        price: req.body.price
+    }
+
+    conn.query(`UPDATE products SET productName='${data.name}', descriptions='${data.desc}', imagePath='${data.path}', price='${data.price}' WHERE productId='${data.id}'`, function(err,result){
+        if (err) {
+            console.error(err);
+            res.json({status: false});
+        }else{
+            console.log(result)
+            res.json({status: true});
+        }
+    })
+
+});
+
+app.post('/add', function(req, res){
+    let data = {
+        name: req.body.name,
+        desc: req.body.description,
+        imgPath: req.body.imgPath,
+        price: req.body.price
+    }
+
+    conn.query(`INSERT INTO products(productName, descriptions, imagePath, price) VALUES('${data.name}','${data.desc}','${data.imgPath}','${data.price}');`, function(err,result){
+        if (err) {
+            console.log(err);
+            res.json({status: false});
+        }else{
+            console.log(result);
+            res.json({status: true});
+        }
+    })
+    // let data = {
+    //     name: name,
+    //     description: desc,
+    //     imgPath: imgPath,
+    //     price: price
+    // }    
+});
+
+
+app.listen(5000, function () {
     console.log('[+] server is running on http://127.0.0.1:5000');
 })
