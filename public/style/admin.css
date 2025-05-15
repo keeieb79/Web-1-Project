@@ -1,0 +1,98 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-color: rgb(223, 219, 219);
+}
+
+/* importing fonts */
+@font-face {
+    font-family: BebasNeue;
+    src: url('public/fonts/Bebas_Neue/BebasNeue-Regular.ttf');
+}
+@font-face {
+    font-family: Cal_Sans;
+    src: url('public/fonts/Cal_Sans/CalSans-Regular.ttf');
+}
+@font-face {
+    font-family: Ubuntu_Regular;
+    src: url('public/fonts/Ubuntu/Ubuntu-Medium.ttf');
+}
+
+.topNavBar{
+    background-color: gray;
+    height: 63px;
+    overflow: hidden;
+}
+
+.topNavBar li{
+    text-align: center;
+    display: inline;
+}
+
+.topNavBar a{
+    color: white;
+
+    display: inline-block;
+    vertical-align: middle;
+    padding: 20px;
+  
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+.topNavBar a:hover{
+    color: black;
+    text-decoration: solid;
+    -webkit-transition: 0.4s;
+}
+
+#navTopLogo{
+    padding: 0px;
+}
+
+#navTopLogo img{
+    height: 62px;
+    width: 60px;
+}
+
+.loginStatus{
+    float: right;
+}
+
+.container{
+    background: rgba(255, 255, 255, 0.1);
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    padding: 30px 15px;
+    
+    width: 70%;
+
+    color: black;
+
+    /* display: flex; */
+    align-items: center;
+
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 10px;
+}
+
+.insertNew{
+    padding: 5px;
+    color: white;
+    background-color: green;
+
+    border: none;
+    border-radius: 5px;
+}
+
+.items table{
+    margin-top: 10px;
+}

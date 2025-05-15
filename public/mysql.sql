@@ -15,7 +15,7 @@ CREATE TABLE users(
 );
 
 ALTER TABLE users AUTO_INCREMENT=114;
-
+INSERT INTO users VALUES(114, 'admin', 'admin', 'admin@mysit.com', 35, '1988-06-26', 'admin');
 ALTER TABLE users ADD roles VARCHAR(20) DEFAULT 'customer' NOT NULL;
 
 DELETE FROM users;

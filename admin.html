@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+
+    <link rel="stylesheet" href="style/admin.css">
+
+    <!-- Bootstrap files -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body onload="checkUser()">
+    <main>
+        <section>
+            <nav class="topNavBar">
+                <!-- TO-DO: your logo with redirect to home page -->
+                <ul>
+                    <li>
+                        <a href="index.html" id="navTopLogo">
+                            <img src="imgs/Edit.org_design_12-05-06--01.png" height="40px" alt="">
+                        </a>
+                    </li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/products">Our Products</a></li>
+                    <li><a href="/search">Search Products</a></li>
+                    <li><a href="/buy">Buy</a></li>
+                    <li><a href="/cart">My cart <span class="badge badge-light" id="getNumItem"></span></a></li>
+
+                    <li class="loginStatus" onload="chaguser()" style="float: right;"><a href="/login"><span
+                                id="loginStatus">Login</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+
+        <section class="container">
+            <button class="insertNew">insert new book</button>  
+
+            <div class="items">
+                <table  class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="insertTable">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- js file -->
+    <script src="scripts/admin.js"></script>
+</body>
+
+</html>

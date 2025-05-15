@@ -9,17 +9,9 @@ const app = express();
 
 app.use(cors())
 app.use(express.json());
+
 // convert the request into javascript object
 app.use(express.urlencoded({ extended: false }));
-// app.use(session({
-//     secret: "123456",
-//     saveUninitialized: false,
-//     resave: false,
-//     cookie:{
-//         maxAge: 60000 * 120
-//     }
-
-// }));
 
 // run your code with nodemon
 // npm run start
@@ -59,17 +51,17 @@ app.post('/register',function(req,res) {
 
     conn.query("SELECT username FROM users WHERE username = '"+ retrivedData.user +"'",function(err,result){
         if(err){
-            res.status(400).send("DB Error " + err)
+            console.error(err);
         }
         else if(result.length > 0 && result[0].username == retrivedData.user){
-            res.status(302).send('User already exist.')
+            res.json({status: false});
             console.log(result);
         }else{
-            conn.query(`INSERT INTO users(username,passwd,email, age, birthDate) VALUES('${retrivedData.user}','${retrivedData.passwd}','${retrivedData.email}','${retrivedData.age}',STR_TO_DATE('${retrivedData.birth}',"%m/%d/%Y"))`,function(err,result){
+            conn.query(`INSERT INTO users(username,passwd,email, age, birthDate) VALUES('${retrivedData.user}','${retrivedData.passwd}','${retrivedData.email}','${retrivedData.age}',STR_TO_DATE('${retrivedData.birth}',"%Y-%m-%d"))`,function(err,result){
                 if(err){
-                    res.status(400).send("Bad request.")
+                    console.error(err);
                 }else{
-                    res.status(301).send("user added successfully.");
+                    res.json({status: true});
                     console.log(retrivedData)
                 }
             });
@@ -89,8 +81,6 @@ app.post('/login',function(req,res){
         password: req.body.password
     }
 
-    // console.log(data.username)
-    
     conn.query(
         "SELECT username, passwd FROM users WHERE username = ? AND passwd = ?",
         [data.username, data.password],
@@ -105,8 +95,6 @@ app.post('/login',function(req,res){
             return;
         } else {
             res.json({success: false, massage: 'user or password incorrct'});
-            // res.send(window.alert('hello')).end();
-            // console.log(result);
             return;
           }
         }
@@ -180,14 +168,39 @@ app.post('/cart',function(req,res){
             }
         }
     );
-    // let data = {
-    //     customerName: window.localStorage.getItem('username'),
-    //     total: window.localStorage.getItem('total')
-    // }
 });
 
+app.get('/admin',function(req,res){
+    res.sendFile(__dirname + '/admin.html');
+});
 
+app.post('/admin', function(req, res){
+    conn.query('SELECT * FROM products',function(err,result){
+        if (err) {
+            console.error(err);
+        }else{
+            res.json(result);
+        }
+    })
 
+});
+
+app.delete('/admin/:id',function(req,res){
+    let id = req.params.id;
+
+    conn.query('DELETE FROM products WHERE productId = ?', [id],
+        function(err,result){
+            if (err) {
+                console.error(err);
+            }else{
+                res.json({status: true})
+            }
+        }
+    )
+
+    console.log(id);
+
+});
 
 app.listen(5000, function(){
     console.log('[+] server is running on http://127.0.0.1:5000');
